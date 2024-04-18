@@ -58,18 +58,18 @@ def load_obj(file_path): #opening the file in read byte mode nad is loading teh 
         logging.info("Error in load_object fuction in utils")
         raise CustomException(e,sys)
 
-def fetch_data_from_mysql():
-    # Connect to MySQL database
-    connection = pymysql.connect(host='root',
-                                 user='liveconnection',
-                                 password='*******',
-                                 database='student')
+# def fetch_data_from_mysql():
+#     # Connect to MySQL database
+#     connection = pymysql.connect(host='root',
+#                                  user='liveconnection',
+#                                  password='*******',
+#                                  database='student')
     
-    # Fetch data from MySQL database
-    query = "SELECT * FROM studentmarksproject"
-    df = pd.read_sql(query, connection)
+#     # Fetch data from MySQL database
+#     query = "SELECT * FROM studentmarksproject"
+#     df = pd.read_sql(query, connection)
     
-    # Close the connection
-    connection.close()
+#     # Close the connection
+#     connection.close()
     
-    return df
+#     return df

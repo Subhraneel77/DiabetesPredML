@@ -1,0 +1,24 @@
+[2024-04-19 01:57:42,439] 161 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[2024-04-19 01:57:43,407] 30 root - INFO - Data Ingestion methods Starts
+[2024-04-19 01:57:43,508] 37 root - INFO - Dataset read as pandas Dataframe
+[2024-04-19 01:57:43,953] 41 root - INFO - Train test split
+[2024-04-19 01:57:44,411] 47 root - INFO - Ingestion of Data is completed
+[2024-04-19 01:57:44,492] 92 root - INFO - Read train and test data completed
+[2024-04-19 01:57:44,496] 93 root - INFO - Train Dataframe Head : 
+   gender   age  hypertension  heart_disease smoking_history    bmi  HbA1c_level  blood_glucose_level  diabetes
+0    Male  49.0             0              0            ever  27.32          5.0                  155         0
+1    Male  64.0             0              0           never  27.32          3.5                  145         0
+2  Female  24.0             0              0         current  27.32          3.5                  130         0
+3  Female  55.0             0              0         current  27.32          6.5                  159         0
+4    Male  14.0             0              0         No Info  20.98          6.2                   85         0
+[2024-04-19 01:57:44,499] 94 root - INFO - Test Dataframe Head  : 
+   gender   age  hypertension  heart_disease smoking_history    bmi  HbA1c_level  blood_glucose_level  diabetes
+0  Female  13.0             0              0         No Info  20.82          5.8                  126         0
+1  Female   3.0             0              0         No Info  21.00          5.0                  145         0
+2    Male  63.0             0              0          former  25.32          3.5                  200         0
+3  Female   2.0             0              0           never  17.43          6.1                  126         0
+4  Female  33.0             0              0     not current  40.08          6.2                  200         1
+[2024-04-19 01:57:44,499] 96 root - INFO - Obtaining preprocessing object
+[2024-04-19 01:57:44,499] 26 root - INFO - Data Transformation initiated
+[2024-04-19 01:57:44,499] 51 root - INFO - Pipeline Initiated
+[2024-04-19 01:57:44,499] 134 root - INFO - Exception occured in the initiate_datatransformation

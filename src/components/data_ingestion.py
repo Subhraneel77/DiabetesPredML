@@ -12,7 +12,7 @@ from src.components.data_transformation import DataTransformationConfig
 from src.components.model_trainer import ModelTrainerConfig
 from src.components.model_trainer import ModelTrainer
 
-from utils import fetch_data_from_mysql # fetching the dataset from MySQL workbench
+# from utils import fetch_data_from_mysql # fetching the dataset from MySQL workbench
 
 ## Step1: Create path variables to store the files are raw csv
 @dataclass #The @dataclass decorator is used to automatically generate base functionalities to classes, including __init__() , __hash__() , __repr__() and more, which helps reduce some boilerplate code.
@@ -58,12 +58,12 @@ class DataIngestion:
 
 if __name__=="__main__":
     obj=DataIngestion()
-    obj.initiate_data_ingestion()
-    # train_data,test_data=obj.initiate_data_ingestion()
+    #obj.initiate_data_ingestion()
+    train_data,test_data=obj.initiate_data_ingestion()
 
-    # data_transformation=DataTransformation()
-    # train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
+    data_transformation=DataTransformation()
+    train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
 
-    # modeltrainer=ModelTrainer()
-    # print(modeltrainer.initiate_model_training(train_arr,test_arr)) #this is going me my r2_score
+    modeltrainer=ModelTrainer()
+    print(modeltrainer.initiate_model_training(train_arr,test_arr)) #this is going me my r2_score
         
