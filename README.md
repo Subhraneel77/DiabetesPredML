@@ -1,4 +1,4 @@
-# Student Marks Prediction Machine Learning Pipeline
+# DiabetesPrediction Machine Learning Pipeline
 
 ### Step 1: Create a new environment
 
