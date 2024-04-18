@@ -1,4 +1,4 @@
-# DiabetesPrediction Machine Learning Pipeline
+# Diabetes Prediction Machine Learning Pipeline
 
 ### Step 1: Create a new environment
 
