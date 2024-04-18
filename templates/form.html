@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* Modified CSS styles */
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        
+        input[type="submit"] {
+            width: auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #b3006b;
+        }
+        
+        .error-message {
+            color: red;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        
+        #error-messages {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <form action="{{url_for('predict_datapoint')}}" method="POST" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" name="gender" placeholder="Enter your gender">
+                <div id="productionyear-error" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="text" id="age" name="age" placeholder="Enter Age ">
+                <div id="cylinders-error" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="hypertension">Select Hypertension:</label>
+                <select id="hypertension" name="hypertension">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                </select>
+                <div id="drivewheels-error" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="smoking_history">Smoking_History:</label>
+                <select id="smoking_history" name="smoking_history">
+                    <option value="never">Never</option>
+                    <option value="no info">No Info</option>
+                    <option value="current">Current</option>
+                    <option value="former">Former</option>
+                    <option value="ever">Ever</option>
+                    <option value="not current">Not current</option>
+                </select>
+                <div id="fueltype-error" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="blood_glucose_level">Blood_glucose_level:</label>
+                <input type="text" id="blood_glucose_level" name="blood_glucose_level" placeholder="Enter blood_glucose_level">
+                <div id="cylinders-error" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="bmi">Bmi rate:</label>
+                <input type="text" id="bmi" name="bmi" placeholder="Enter bmi rate">
+                <div id="cylinders-error" class="error-message"></div>
+            </div>
+            <div class="form-group">
+                <label for="HbA1c_level">HbA1c_level:</label>
+                <input type="text" id="HbA1c_level" name="HbA1c_level" placeholder="Enter HbA1c_level">
+                <div id="cylinders-error" class="error-message"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var gender = document.getElementById('gender').value;
+            var age = document.getElementById('age').value;
+            var blood_glucose_level = document.getElementById('blood_glucose_level').value;
+            var bmi = document.getElementById('bmi').value;
+            var HbA1c_level = document.getElementById('HbA1c_level').value;
+
+            var errorMessages = [];
+
+            // Validate gender
+            if (gender === '') {
+                errorMessages.push('Gender is required.');
+            }
+
+            // Validate age
+            if (age === '' || isNaN(age)) {
+                errorMessages.push('Age must be a number.');
+            }
+
+            // Validate blood glucose level
+            if (blood_glucose_level === '' || isNaN(blood_glucose_level)) {
+                errorMessages.push('Blood glucose level must be a number.');
+            }
+
+            // Validate BMI
+            if (bmi === '' || isNaN(bmi)) {
+                errorMessages.push('BMI must be a number.');
+            }
+
+            // Validate HbA1c level
+            if (HbA1c_level === '' || isNaN(HbA1c_level)) {
+                errorMessages.push('HbA1c level must be a number.');
+            }
+
+            // Display error messages if any
+            var errorMessageDiv = document.getElementById('error-messages');
+            errorMessageDiv.innerHTML = '';
+            if (errorMessages.length > 0) {
+                for (var i = 0; i < errorMessages.length; i++) {
+                    errorMessageDiv.innerHTML += '<p>' + errorMessages[i] + '</p>';
+                }
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
